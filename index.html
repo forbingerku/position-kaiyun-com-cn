@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f7fc;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a30 0%, #142b44 100%);
+            color: #e1e8f0;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid #3b82f6;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+        }
+        .hero h1 span {
+            color: #7baaf7;
+        }
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3.5rem;
+        }
+
+        /* 摘要卡片 */
+        .summary-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 14px rgba(0, 20, 40, 0.06);
+            margin-bottom: 2.8rem;
+        }
+        .summary-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+            border-left: 6px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .summary-card p {
+            font-size: 1rem;
+            color: #334155;
+        }
+
+        /* 亮点网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        .feature-item {
+            background: white;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem 1.8rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease;
+            border-top: 3px solid #e2e8f0;
+        }
+        .feature-item:nth-child(1) { border-top-color: #3b82f6; }
+        .feature-item:nth-child(2) { border-top-color: #6366f1; }
+        .feature-item:nth-child(3) { border-top-color: #14b8a6; }
+        .feature-item:nth-child(4) { border-top-color: #f59e0b; }
+        .feature-item:hover {
+            transform: translateY(-4px);
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* 使用建议区域 */
+        .usage-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 4px 14px rgba(0, 20, 40, 0.06);
+        }
+        .usage-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+            border-left: 6px solid #6366f1;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .usage-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+        .usage-block {
+            flex: 1 1 200px;
+            background: #f8faff;
+            border-radius: 14px;
+            padding: 1.2rem 1.4rem;
+        }
+        .usage-block h4 {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+        .usage-block p {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        /* 可信提示 */
+        .note-box {
+            background: #eef4ff;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin: 2.5rem 0 1.5rem;
+            border-left: 6px solid #3b82f6;
+        }
+        .note-box h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0b1a30;
+            margin-bottom: 0.6rem;
+        }
+        .note-box p {
+            color: #1e3a5f;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            margin: 2rem 0;
+        }
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0f172a;
+            border-left: 6px solid #14b8a6;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .faq-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            color: #0b1a30;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item p {
+            color: #475569;
+            font-size: 0.92rem;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #2563eb80;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+        a:hover {
+            color: #1d4ed8;
+            border-bottom: 1px solid #1d4ed8;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .usage-grid {
+                flex-direction: column;
+            }
+            .container {
+                padding: 1.5rem 1rem 2.5rem;
+            }
+            .summary-card, .usage-section, .faq-mini, .note-box {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem 2.5rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 1.8rem;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            background: #f5f7fc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>开云 · <span>产品定位</span></h1>
+        <p>面向需要快速理解网站用途的访客，呈现功能轮廓、使用场景与核心价值。</p>
+    </section>
+
+    <div class="container">
+
+        <!-- 摘要 -->
+        <div class="summary-card">
+            <h2>一句话摘要</h2>
+            <p><strong>开云</strong> 是一个聚焦于特定领域资源整合与信息交付的轻量平台。用户可通过平台获取结构化内容、配置指引或行业参考，无需复杂注册即可接触核心材料。本站以直接、低摩擦的方式呈现关键模块，帮助访问者迅速判断是否与自身需求匹配。</p>
+        </div>
+
+        <!-- 亮点 grid -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>🛠 即用型模块</h3>
+                <p>页面内嵌可直接查阅或下载的资源卡片、数据摘要与操作面板，减少跳转层级。</p>
+            </div>
+            <div class="feature-item">
+                <h3>📂 分类导航</h3>
+                <p>按用途将内容归为若干类别，用户可根据当前任务快速定位到对应板块。</p>
+            </div>
+            <div class="feature-item">
+                <h3>⚙️ 配置参考</h3>
+                <p>提供典型参数、常见配置组合与实时示例，适合需要快速比对的用户。</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔗 轻交互设计</h3>
+                <p>所有核心操作均可在当前页面内完成，无需强制下载或跳转外部环境。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <section class="usage-section">
+            <h2>使用建议</h2>
+            <div class="usage-grid">
+                <div class="usage-block">
+                    <h4>新访客</h4>
+                    <p>先浏览摘要区域与分类索引，了解整体内容范围，再进入具体模块。</p>
+                </div>
+                <div class="usage-block">
+                    <h4>回访用户</h4>
+                    <p>可直接使用搜索或快捷入口定位上次未完成的操作或待查资料。</p>
+                </div>
+                <div class="usage-block">
+                    <h4>深度使用者</h4>
+                    <p>建议收藏常用工具页，并关注首页更新日志以获取最新配置参考。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 可信但克制的访问说明 -->
+        <div class="note-box">
+            <h3>🔍 访问说明</h3>
+            <p><strong>开云</strong> 所有公开内容均经过基础审核与归类，但不对第三方引用信息的绝对准确性作承诺。平台不收集用户敏感数据，不设强制登录。部分高级功能可能需要浏览器支持，建议使用最新版 Chrome / Firefox / Edge 访问以获得完整交互体验。如遇访问异常，可先检查网络或尝试清除缓存。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h2>常见疑问 · 摘要</h2>
+            <div class="faq-item">
+                <strong>这个网站主要提供什么？</strong>
+                <p>聚合了若干实用工具、配置模板与知识条目，侧重点在于信息提取效率而非社区互动。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要注册或付费？</strong>
+                <p>目前所有开放内容均可直接访问，不要求注册。未来若引入增值模块会明确标注。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容更新频率如何？</strong>
+                <p>核心资源随行业变化不定期修订，首页会标记最近更新日期。建议定期回访。</p>
+            </div>
+            <div class="faq-item">
+                <strong>如何反馈问题或建议？</strong>
+                <p>可通过网站底部邮箱或内置反馈入口提交，工作日内通常 1-2 天回复。</p>
+            </div>
+        </div>
+
+        <!-- 自然嵌入链接的句子 -->
+        <p style="margin-top: 2rem; font-size: 0.98rem; color: #334155; background: #f8faff; padding: 1rem 1.5rem; border-radius: 14px;">
+            若想进一步了解平台的全貌与最新动态，可直接访问 <a href="https://position-kaiyun.com.cn">开云</a> 首页，那里汇集了所有主要入口与分类导航。
+        </p>
+    </div>
+
+    <footer>
+        © 开云 · 产品说明页 · 信息结构仅供参考
+    </footer>
+
+</body>
+</html>
